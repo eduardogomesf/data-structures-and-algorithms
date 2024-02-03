@@ -1,0 +1,13 @@
+{
+  "name": "dsa",
+  "description": "Data Structure and Algorithms",
+  "version": "1.0.0",
+  "scripts": {},
+  "keywords": [
+    "data-structure",
+    "algorithms",
+    "dsa"
+  ],
+  "author": "eduardogomesf",
+  "license": "MIT"
+}
