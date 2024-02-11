@@ -9,7 +9,7 @@ export class Node {
 }
 
 export class LinkedList {
-  head: Node
+  head: Node | null
 
   insertAtEnd(value: any) {
     const node = new Node(value)
@@ -28,23 +28,58 @@ export class LinkedList {
   insertAtBeginning(value: any) {
     const node = new Node(value)
 
-    if(!this.head) {
-      this.head = node
-    } else {
-      const oldHead = this.head
-      this.head = node
-      this.head.next = oldHead
-    }
+    const oldHead = this.head ?? null
+    this.head = node
+    this.head.next = oldHead
   }
 
   traverse() {
     let node = this.head
 
-    while(node && node.next != null) {
+    while(node) {
       console.log(node)
       node = node.next
     }
   }
 
+  deleteFromBeginning() {
+    let oldHead = this.head
+
+    this.head = null
+
+    if(oldHead && oldHead.next) {
+      this.head = oldHead.next
+    }
+  }
+
+  deleteFromEnd() {
+    let node = this.head
+
+    if(!node || node.next === null) {
+      this.head = null
+      return
+    }
+
+    while(node) {
+      if(node.next && node.next.next === null) {
+        node.next = null
+        break;
+      }
+      node = node.next
+    }
+  }
+
+  searchElement(value: any) {
+    let node = this.head
+
+    while(node) {
+      if(node.data === value) {
+        break;
+      }
+      node = node.next
+    }
+
+    return node
+  }
 
 }
