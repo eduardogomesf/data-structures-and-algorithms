@@ -19,7 +19,7 @@
     "down": "docker compose down"
   },
   "devDependencies": {
-    "@types/jest": "29.5.8",
+    "@types/jest": "^29.5.8",
     "@types/node": "20.9.0",
     "@types/uuid": "9.0.7",
     "@typescript-eslint/eslint-plugin": "6.10.0",

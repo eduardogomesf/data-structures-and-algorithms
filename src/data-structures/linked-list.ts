@@ -14,11 +14,11 @@ export class LinkedList {
   insertAtEnd(value: any) {
     const node = new Node(value)
 
-    if(!this.head) {
+    if (!this.head) {
       this.head = node
     } else {
       let tmp = this.head
-      while(tmp.next != null) {
+      while (tmp.next != null) {
         tmp = tmp.next
       }
       tmp.next = node
@@ -36,18 +36,18 @@ export class LinkedList {
   traverse() {
     let node = this.head
 
-    while(node) {
+    while (node) {
       console.log(node)
       node = node.next
     }
   }
 
   deleteFromBeginning() {
-    let oldHead = this.head
+    const oldHead = this.head
 
     this.head = null
 
-    if(oldHead && oldHead.next) {
+    if (oldHead?.next) {
       this.head = oldHead.next
     }
   }
@@ -55,15 +55,15 @@ export class LinkedList {
   deleteFromEnd() {
     let node = this.head
 
-    if(!node || node.next === null) {
+    if (node?.next === null) {
       this.head = null
       return
     }
 
-    while(node) {
-      if(node.next && node.next.next === null) {
+    while (node) {
+      if (node.next && node.next.next === null) {
         node.next = null
-        break;
+        break
       }
       node = node.next
     }
@@ -72,14 +72,13 @@ export class LinkedList {
   searchElement(value: any) {
     let node = this.head
 
-    while(node) {
-      if(node.data === value) {
-        break;
+    while (node) {
+      if (node.data === value) {
+        break
       }
       node = node.next
     }
 
     return node
   }
-
 }
